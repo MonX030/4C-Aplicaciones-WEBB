@@ -3,32 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Rubén Morales Reyes | T.S.U en Desarrollo de Software Multiplataforma
-    </title>
-    <link
-      id="mi-favicon"
-      rel="icon"
-      href="assets/images/favicon.ico"
-      type="image/x-icon"
-    />
+    <meta name="description" content="Mi primera página web personal" />
+    <meta name="author" content="Rubén Morales Reyes" />
+    <title>Mi Primera Página Web</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
-    <!--====================== -->
+    <!-- ====================== -->
     <!-- NAVEGACIÓN -->
     <!-- ====================== -->
-    <nav id="menu">
+    <nav id="navbar">
+      <h2>🚀 Mi Mundo</h2>
       <ul>
-        <li><a href="#acerca-de-mi">Acerca de mí</a></li>
-        <li><a href="#aspiraciones">Aspiraciones</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#favoritos">Favoritos</a></li>
-        <li><a href="#redes">Redes sociales</a></li>
+        <li><a href="#inicio" class="menu_option">Inicio</a></li>
+        <li><a href="#acerca-de-mi" class="menu_option">Sobre mí</a></li>
+        <li><a href="#aspiraciones" class="menu_option">Aspiraciones</a></li>
+        <li><a href="#hobbies" class="menu_option">Hobbies</a></li>
+        <li><a href="#favoritos" class="menu_option">Favoritos</a></li>
+        <li><a href="#redes" class="menu_option">Redes</a></li>
       </ul>
     </nav>
 
+    <!-- HERO / PARALLAX 1 -->
+    <header id="inicio" class="parallax-1">
+      <div class="glass-hero-card">
+        <h1>Rubén Morales Reyes</h1>
+      </div>
+    </header>
+
     <!-- ACERCA DE MÍ -->
-    <section id="acerca-de-mi">
+    <section id="acerca-de-mi" class="seccion-solida-1">
       <h2>
         <img
           src="assets/images/favicon.ico"
@@ -37,8 +43,8 @@
         />Acerca de mí
       </h2>
 
-      <div>
-        <div>
+      <div class="contenedor">
+        <div class="card">
           <p>
             Soy estudiante de Tecnologías de la Información y me interesa
             aprender sobre desarrollo web, programación, diseño y nuevas
@@ -75,26 +81,18 @@
       </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- ===== ASPIRACIONES ===== -->
-    <!-- ========================= -->
+    <!-- ASPIRACIONES -->
     <section id="aspiraciones">
       <h2>Mis aspiraciones</h2>
       <div>
         <article>
           <h3>Terminar mi carrera</h3>
-          <p>
-            Concluir mis estudios y fortalecer mis habilidades profesionales.
-          </p>
+          <p>Concluir mis estudios y fortalecer mis habilidades profesionales.</p>
         </article>
-
         <article>
           <h3>Ser Desarrollador</h3>
-          <p>
-            Trabajar en proyectos de software y crear aplicaciones útiles.
-          </p>
+          <p>Trabajar en proyectos de software y crear aplicaciones útiles.</p>
         </article>
-
         <article>
           <h3>Viajar</h3>
           <p>Conocer otras ciudades, culturas y tener nuevas experiencias.</p>
@@ -105,28 +103,23 @@
     <!-- HOBBIES -->
     <section id="hobbies">
       <h2>Lo que disfruto hacer</h2>
-
       <div>
         <article>
           <h3>Programar</h3>
           <p>Crear soluciones.</p>
         </article>
-
         <article>
           <h3>Deportes</h3>
           <p>Basketball, running.</p>
         </article>
-
         <article>
           <h3>Música</h3>
           <p>Escuchar y descubrir nuevos ritmos.</p>
         </article>
-
         <article>
           <h3>Fotografía</h3>
           <p>Compartir momentos.</p>
         </article>
-
         <article>
           <h3>Viajar</h3>
           <p>Conocer nuevos lugares.</p>
@@ -134,23 +127,18 @@
       </div>
     </section>
 
-    <!-- ============================= -->
     <!-- FAVORITOS -->
-    <!-- ============================= -->
     <section id="favoritos">
       <h2>Mis Favoritos</h2>
-
       <div>
         <article>
           <h3>Película favorita</h3>
           <p>La Odisea</p>
         </article>
-
         <article>
           <h3>Canción favorita</h3>
           <p>Mandragora - Me Gustas</p>
         </article>
-
         <article>
           <h3>Libro favorito</h3>
           <p>El Perfume</p>
@@ -158,93 +146,26 @@
       </div>
     </section>
 
-    <!-- ============================= -->
     <!-- REDES SOCIALES -->
-    <!-- ============================= -->
     <section id="redes">
       <h2>🌐 Mis redes sociales</h2>
-
       <p>Puedes encontrarme en:</p>
-
       <div>
-        <a href="https://github.com/" target="_blank" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <path
-              fill="currentColor"
-              d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.01 3.24 9.26 7.73 10.76.56.1.77-.24.77-.54 0-.27-.01-1.16-.02-2.1-3.15.68-3.81-1.34-3.81-1.34-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1 .1 1.54.76 1.91 1.33.1-.72.39-1.21.71-1.49-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.16-3.04-.12-.29-.5-1.46.11-3 0 0 .95-.3 3.11 1.16A10.8 10.8 0 0112 6.84c.96 0 1.93.13 2.83.38 2.16-1.46 3.11-1.16 3.11-1.16.61 1.54.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.04 0 4.35-2.66 5.31-5.19 5.59.4.34.75 1.02.75 2.06 0 1.49-.01 2.69-.01 3.06 0 .3.2.65.78.54 4.48-1.5 7.72-5.75 7.72-10.76C23.25 5.48 18.27.5 12 .5z"
-            />
-          </svg>
-          <span>GitHub</span>
-        </a>
-
-        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <rect
-              x="3"
-              y="3"
-              width="18"
-              height="18"
-              rx="5"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              r="4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
-          </svg>
-          <span>Instagram</span>
-        </a>
-
-        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <path
-              fill="currentColor"
-              d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"
-            />
-          </svg>
-          <span>Facebook</span>
-        </a>
-
-        <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <path
-              fill="currentColor"
-              d="M15 3c.5 2.3 1.8 3.8 4 4v4c-1.7 0-3.2-.5-4.5-1.5v6c0 3.6-2.6 6-6 6-3.2 0-5.5-2.4-5.5-5.5 0-3.4 2.7-5.8 6.5-5.8v4c-1.5 0-2.5.7-2.5 1.9 0 1.1.8 1.9 1.9 1.9 1.3 0 2.1-.9 2.1-2.4V3z"
-            />
-          </svg>
-          <span>TikTok</span>
-        </a>
-
-        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <rect x="4" y="9" width="4" height="11" fill="currentColor" />
-            <circle cx="6" cy="5.5" r="2" fill="currentColor" />
-            <path
-              fill="currentColor"
-              d="M10 9h4v1.6c1-1.3 2.2-2 4-2 3.2 0 5 2.1 5 6.2V20h-4v-4.6c0-2-.7-3.1-2.2-3.1-1.8 0-2.8 1.3-2.8 3.4V20h-4z"
-            />
-          </svg>
-          <span>LinkedIn</span>
-        </a>
-
-        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <path
-              fill="currentColor"
-              d="M21 7.5c-.2-1.4-1.2-2.5-2.6-2.7C16.4 4.5 12 4.5 12 4.5s-4.4 0-6.4.3C4.2 5 3.2 6.1 3 7.5 2.7 9 2.7 12 2.7 12s0 3 .3 4.5c.2 1.4 1.2 2.5 2.6 2.7 2 .3 6.4 .3 6.4.3s4.4 0 6.4-.3c1.4-.2 2.4-1.3 2.6-2.7.3-1.5.3-4.5.3-4.5s0-3-.3-4.5z"
-            />
-            <polygon points="10,9 16,12 10,15" fill="white" />
-          </svg>
-          <span>YouTube</span>
-        </a>
+        <a href="https://github.com/" target="_blank" aria-label="GitHub">GitHub</a>
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">Instagram</a>
+        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">Facebook</a>
+        <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">TikTok</a>
+        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">YouTube</a>
       </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Mi Primera Página Web</p>
+      <p>
+        <a href="#inicio">↑ Volver al inicio</a>
+      </p>
+    </footer>
   </body>
 </html>

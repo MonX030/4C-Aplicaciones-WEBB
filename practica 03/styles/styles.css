@@ -1,0 +1,24 @@
+/* Este es un comentario en css */
+
+body { /* Selector de componente de la página */
+    background-color: skyblue;
+}
+
+#acerca-de-mi {
+    background-color: greenyellow;
+}
+
+.menu_option {
+    background-color: purple;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white; /* Para que el texto sea legible sobre el morado */
+    padding: 6px 12px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.menu_option:hover {
+    background-color: white;
+    color: purple; /* Para que contraste al pasar el mouse */
+}
