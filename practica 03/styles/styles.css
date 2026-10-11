@@ -1,0 +1,1451 @@
+/* ==================================================
+CONFIGURACIÓN GENERAL
+================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0f172a;
+
+    color: #ccc;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+
+/* ==================================================
+NAVEGACIÓN
+================================================== */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 14px 3%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: rgba(15, 23, 42, 0.65);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    z-index: 1000;
+}
+
+nav h2 {
+    color: white;
+
+    margin: 0;
+
+    font-size: 1.4rem;
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+
+    gap: 25px;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: tomato;
+}
+
+
+/* ==================================================
+MENÚ
+================================================== */
+
+.menu_option {
+    display: inline-block;
+
+    padding: 8px;
+
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+.menu_option:hover {
+    color: tomato;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+PARALLAX
+================================================== */
+
+.parallax {
+    min-height: 100vh;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 120px 20px 80px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+FONDOS
+================================================== */
+
+.parallax-1 {
+    background-image: url("../assets/images/fondo1.png");
+}
+
+.parallax-2 {
+    background-image: url("../assets/images/fondo2.png");
+}
+
+.parallax-3 {
+    background-image: url("../assets/images/fondo3.png");
+}
+
+.parallax-4 {
+    background-image: url("../assets/images/fondo4.png");
+}
+
+.parallax-5 {
+    background-image: url("../assets/images/fondo5.png");
+}
+
+
+/* ==================================================
+CAPA OSCURA
+================================================== */
+
+.parallax::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.52);
+
+    z-index: 0;
+}
+
+
+/* ==================================================
+CONTENIDO SOBRE EL PARALLAX
+================================================== */
+
+.parallax > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ==================================================
+ANCLAJES DEL MENÚ
+================================================== */
+
+[id] {
+    scroll-margin-top: 100px;
+}
+
+
+/* ==================================================
+CONTENEDOR PRINCIPAL
+================================================== */
+
+.seccion-contenido {
+    width: min(1100px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* ==================================================
+TARJETA PRINCIPAL
+================================================== */
+
+.glass-hero-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 90%);
+
+    padding: 45px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background: rgba(20, 30, 50, 0.58);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==================================================
+FOTO DE PERFIL
+================================================== */
+
+.profile-img {
+    width: clamp(140px, 20vmin, 250px);
+
+    height: clamp(140px, 20vmin, 250px);
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow:
+        0 10px 30px rgba(255, 99, 71, 0.45);
+
+    margin-bottom: 20px;
+}
+
+
+/* ==================================================
+TEXTO INICIAL
+================================================== */
+
+.texto-inicio h1 {
+    color: white;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    margin: 10px 0;
+}
+
+.texto-inicio p {
+    font-size: 1.2rem;
+
+    color: #e5e7eb;
+}
+
+
+/* ==================================================
+FRASE
+================================================== */
+
+blockquote {
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    padding-left: 20px;
+
+    border-left: 3px solid tomato;
+
+    font-size: 1.2rem;
+
+    font-style: italic;
+
+    color: #e5e7eb;
+}
+
+
+/* ==================================================
+BOTÓN
+================================================== */
+
+.boton {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 14px 30px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    color: #111827;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.boton:hover {
+    transform: translateY(-4px);
+
+    background-color: tomato;
+
+    color: white;
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==================================================
+SECCIONES
+================================================== */
+
+section {
+    min-height: 100vh;
+
+    padding: 100px 8%;
+}
+
+section h2 {
+    color: white;
+
+    font-size: 2.3rem;
+
+    text-align: center;
+
+    margin-top: 0;
+
+    margin-bottom: 40px;
+}
+
+
+/* ==================================================
+SOBRE MÍ
+================================================== */
+
+#acerca-de-mi {
+    position: relative;
+}
+
+
+/* ==================================================
+CONTENEDOR SOBRE MÍ
+================================================== */
+
+.contenedor {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: stretch;
+}
+
+
+/* ==================================================
+TARJETA SOBRE MÍ
+================================================== */
+
+.card {
+    position: relative;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.05)
+        );
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.30);
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            tomato,
+            #ff8c69,
+            transparent
+        );
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(255, 99, 71, 0.4);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+.card h3 {
+    color: tomato;
+
+    margin-top: 5px;
+
+    margin-bottom: 20px;
+
+    font-size: 1.5rem;
+}
+
+.card p {
+    font-size: 1.05rem;
+
+    color: #e5e7eb;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==================================================
+DATOS PERSONALES
+================================================== */
+
+.datos-personales {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* ==================================================
+TARJETAS DE DATOS
+================================================== */
+
+.datos-personales article {
+    position: relative;
+
+    margin: 0;
+
+    padding: 25px;
+
+    min-height: 140px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.11),
+            rgba(255, 255, 255, 0.04)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+.datos-personales article::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 4px;
+
+    height: 100%;
+
+    background: tomato;
+}
+
+.datos-personales article:hover {
+    transform: translateY(-6px);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 99, 71, 0.16),
+            rgba(255, 255, 255, 0.05)
+        );
+
+    border-color: rgba(255, 99, 71, 0.4);
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+.datos-personales article h3 {
+    color: tomato;
+
+    margin: 0 0 8px;
+
+    font-size: 1.2rem;
+}
+
+.datos-personales article p {
+    color: #e5e7eb;
+
+    margin: 0;
+
+    font-size: 1rem;
+}
+
+
+/* ==================================================
+TARJETAS GENERALES
+================================================== */
+
+section article {
+    background:
+        rgba(255, 255, 255, 0.09);
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    transition: 0.3s ease;
+}
+
+section article:hover {
+    transform: translateY(-6px);
+
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+section article h3 {
+    color: tomato;
+
+    margin-top: 0;
+
+    font-size: 1.3rem;
+}
+
+section article p {
+    color: #e5e7eb;
+}
+
+
+/* ==================================================
+GRID DE TARJETAS
+================================================== */
+
+.cards-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ==================================================
+FAVORITOS
+================================================== */
+
+#favoritos article {
+    text-align: center;
+}
+
+
+/* ==================================================
+PELÍCULA FAVORITA
+================================================== */
+
+.movie-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.video-pelicula {
+    width: 100%;
+
+    max-width: 450px;
+
+    display: block;
+
+    margin: 20px auto 0;
+
+    border-radius: 14px;
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    background: #000;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45);
+
+    transition: 0.3s ease;
+}
+
+.video-pelicula:hover {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 15px 35px rgba(255, 99, 71, 0.35);
+}
+
+
+/* ==================================================
+TARJETA DE CANCIÓN
+================================================== */
+
+.music-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* ==================================================
+PORTADA DE LA CANCIÓN
+================================================== */
+
+.portada-cancion {
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin: 0 auto 20px;
+
+    border-radius: 12px;
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.4);
+
+    transition: 0.3s ease;
+}
+
+.music-card:hover .portada-cancion {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(255, 99, 71, 0.35);
+}
+
+
+/* ==================================================
+REPRODUCTOR DE MÚSICA
+================================================== */
+
+.reproductor-musica {
+    width: 100%;
+
+    margin-top: 15px;
+
+    border-radius: 8px;
+}
+
+
+/* ==================================================
+LIBRO FAVORITO
+================================================== */
+
+.book-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.portada-libro {
+    width: 180px;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin: 10px auto 0;
+
+    border-radius: 10px;
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.45);
+
+    transition: 0.3s ease;
+}
+
+.portada-libro:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(255, 99, 71, 0.35);
+}
+
+
+/* ==================================================
+REDES SOCIALES
+================================================== */
+
+#redes {
+    background: #111827;
+
+    text-align: center;
+
+    min-height: auto;
+}
+
+#redes > p {
+    color: #d1d5db;
+}
+
+
+/* ==================================================
+CONTENEDOR DE REDES
+================================================== */
+
+.social-container {
+    max-width: 900px;
+
+    margin: 40px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* ==================================================
+REDES EN CUADRITOS
+================================================== */
+
+.social-container a {
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+.social-container a:hover {
+    background: tomato;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.30);
+}
+
+.social-container svg {
+    width: 27px;
+
+    height: 27px;
+
+    flex-shrink: 0;
+}
+
+
+/* ==================================================
+FOOTER
+================================================== */
+
+footer {
+    background: #020617;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    color: #aaa;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: tomato;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==================================================
+TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    nav {
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding: 12px 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 10px;
+    }
+
+
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .social-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==================================================
+CELULAR
+================================================== */
+
+@media (max-width: 600px) {
+
+    nav h2 {
+        font-size: 1.1rem;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .menu_option {
+        font-size: 14px;
+    }
+
+    .menu_option:hover {
+        font-size: 14px;
+    }
+
+
+    .parallax {
+        padding: 120px 15px 70px;
+
+        background-attachment: scroll;
+    }
+
+
+    .glass-hero-card {
+        width: 95%;
+
+        padding: 30px 20px;
+    }
+
+
+    .profile-img {
+        width: 160px;
+
+        height: 160px;
+    }
+
+
+    .texto-inicio h1 {
+        font-size: 2rem;
+    }
+
+    .texto-inicio p {
+        font-size: 1rem;
+    }
+
+
+    blockquote {
+        font-size: 1rem;
+    }
+
+
+    section {
+        padding: 80px 5%;
+    }
+
+
+    section h2 {
+        font-size: 1.9rem;
+    }
+
+
+    .contenedor {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .card {
+        padding: 28px 22px;
+    }
+
+
+    .datos-personales {
+        grid-template-columns: 1fr;
+    }
+
+
+    .datos-personales article {
+        min-height: 120px;
+    }
+
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ==================================================
+    VIDEO EN CELULAR
+    ================================================== */
+
+    .video-pelicula {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-top: 15px;
+    }
+
+
+    /* ==================================================
+    PORTADA DE CANCIÓN EN CELULAR
+    ================================================== */
+
+    .portada-cancion {
+        width: 160px;
+
+        height: 160px;
+    }
+
+
+    /* ==================================================
+    PORTADA DEL LIBRO EN CELULAR
+    ================================================== */
+
+    .portada-libro {
+        width: 160px;
+
+        height: 235px;
+    }
+
+
+    /* ==================================================
+    REDES EN CELULAR
+    ================================================== */
+
+    .social-container {
+        grid-template-columns: 1fr;
+
+        width: 100%;
+    }
+
+
+    .social-container a {
+        width: 100%;
+
+        min-height: 65px;
+    }
+
+}
+
+
+/* ==================================================
+PANTALLAS MUY PEQUEÑAS
+================================================== */
+
+@media (max-width: 400px) {
+
+    nav ul {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+
+    .glass-hero-card {
+        padding: 25px 15px;
+    }
+
+
+    .profile-img {
+        width: 135px;
+
+        height: 135px;
+    }
+
+
+    .texto-inicio h1 {
+        font-size: 1.7rem;
+    }
+
+
+    section h2 {
+        font-size: 1.7rem;
+    }
+
+
+    .portada-cancion {
+        width: 140px;
+
+        height: 140px;
+    }
+
+
+    .portada-libro {
+        width: 140px;
+
+        height: 210px;
+    }
+
+
+    .video-pelicula {
+        border-radius: 10px;
+    }
+
+}
+
+
+/* ==================================================
+PRÁCTICA 03 - AJUSTES NUEVOS (carrusel, modal, accesibilidad)
+================================================== */
+
+/* Texto solo para lectores de pantalla */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Foco visible para navegación con teclado */
+a:focus-visible,
+button:focus-visible,
+.carrusel:focus-visible {
+    outline: 3px solid #ffd166;
+    outline-offset: 3px;
+}
+
+/* El botón .boton también se usa como <button> */
+button.boton {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+}
+
+/* ---------- CARRUSEL ---------- */
+.carrusel {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 56px;
+}
+
+.carrusel-viewport {
+    overflow: hidden;            /* oculta las diapositivas que no se ven */
+    border-radius: 18px;
+}
+
+.carrusel-track {
+    display: flex;               /* Flexbox: diapositivas en fila */
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;              /* cada tarjeta ocupa todo el carrusel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.portada-slide {
+    width: clamp(150px, 40vw, 220px);
+    height: clamp(150px, 40vw, 220px);
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.portada-slide-libro {
+    height: clamp(210px, 55vw, 300px);
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(20, 30, 50, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.carrusel-btn:hover {
+    background: tomato;
+}
+
+.carrusel-prev { left: 0; }
+.carrusel-next { right: 0; }
+
+.carrusel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dot.activo {
+    background: tomato;
+    border-color: tomato;
+    transform: scale(1.25);
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;               /* por encima de la navegación (1000) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 2vw;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.modal[hidden],
+.modal-panel[hidden] {
+    display: none;
+}
+
+.modal-box {
+    width: min(1100px, 100%);
+    height: min(92vh, 100%);
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.modal-close:hover {
+    background: tomato;
+}
+
+.modal-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+}
+
+.modal-panel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal-panel video {
+    width: 100%;
+    max-height: 100%;
+    background: #000;
+    border-radius: 12px;
+}
+
+.modal-panel-audio p {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.modal-panel-audio audio {
+    width: min(500px, 100%);
+}
+
+.modal-panel iframe {
+    flex: 1;
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    background: white;
+}
+
+.modal-nota {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.modal-nota a {
+    color: tomato;
+}
+
+/* Bloquea el scroll del fondo mientras el modal está abierto */
+html.modal-open,
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ---------- RESPONSIVO / OTROS ---------- */
+@media (max-width: 900px) {
+    /* La navegación fija ocupa más alto en pantallas pequeñas */
+    [id] { scroll-margin-top: 140px; }
+    .parallax { padding-top: 150px; }
+}
+
+@media (max-width: 600px) {
+    .carrusel { padding: 0 40px; }
+    .carrusel-btn { width: 36px; height: 36px; font-size: 1.5rem; }
+    .modal { padding: 0; }
+    .modal-box { height: 100%; border-radius: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+
+/* ==================================================
+REDES SOCIALES CON IMAGEN DE FONDO (parallax)
+Para cambiarla: reemplaza assets/images/fondo6.jpg por tu foto
+(usa el mismo nombre) o cambia la ruta en la línea url(...).
+Si la imagen no carga, se ve el color sólido #111827.
+================================================== */
+#redes {
+    background-image: url("../assets/images/fondo6.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Capa oscura, igual que en las demás secciones */
+#redes::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    z-index: 0;
+}
+
+#redes > * {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    #redes { background-attachment: scroll; }
+}
