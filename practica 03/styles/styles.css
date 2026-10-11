@@ -148,23 +148,23 @@ FONDOS
 ================================================== */
 
 .parallax-1 {
-    background-image: url("../assets/images/fondo1.jpg");
+    background-image: url("../assets/images/fondo1.png");
 }
 
 .parallax-2 {
-    background-image: url("../assets/images/fondo2.jpg");
+    background-image: url("../assets/images/fondo2.png");
 }
 
 .parallax-3 {
-    background-image: url("../assets/images/fondo3.jpg");
+    background-image: url("../assets/images/fondo3.png");
 }
 
 .parallax-4 {
-    background-image: url("../assets/images/fondo4.jpg");
+    background-image: url("../assets/images/fondo4.png");
 }
 
 .parallax-5 {
-    background-image: url("../assets/images/fondo5.jpg");
+    background-image: url("../assets/images/fondo5.png");
 }
 
 
@@ -1158,4 +1158,294 @@ PANTALLAS MUY PEQUEÑAS
         border-radius: 10px;
     }
 
+}
+
+
+/* ==================================================
+PRÁCTICA 03 - AJUSTES NUEVOS (carrusel, modal, accesibilidad)
+================================================== */
+
+/* Texto solo para lectores de pantalla */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Foco visible para navegación con teclado */
+a:focus-visible,
+button:focus-visible,
+.carrusel:focus-visible {
+    outline: 3px solid #ffd166;
+    outline-offset: 3px;
+}
+
+/* El botón .boton también se usa como <button> */
+button.boton {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+}
+
+/* ---------- CARRUSEL ---------- */
+.carrusel {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 56px;
+}
+
+.carrusel-viewport {
+    overflow: hidden;            /* oculta las diapositivas que no se ven */
+    border-radius: 18px;
+}
+
+.carrusel-track {
+    display: flex;               /* Flexbox: diapositivas en fila */
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;              /* cada tarjeta ocupa todo el carrusel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.portada-slide {
+    width: clamp(150px, 40vw, 220px);
+    height: clamp(150px, 40vw, 220px);
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.portada-slide-libro {
+    height: clamp(210px, 55vw, 300px);
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(20, 30, 50, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.carrusel-btn:hover {
+    background: tomato;
+}
+
+.carrusel-prev { left: 0; }
+.carrusel-next { right: 0; }
+
+.carrusel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dot.activo {
+    background: tomato;
+    border-color: tomato;
+    transform: scale(1.25);
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;               /* por encima de la navegación (1000) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 2vw;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.modal[hidden],
+.modal-panel[hidden] {
+    display: none;
+}
+
+.modal-box {
+    width: min(1100px, 100%);
+    height: min(92vh, 100%);
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.modal-close:hover {
+    background: tomato;
+}
+
+.modal-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+}
+
+.modal-panel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal-panel video {
+    width: 100%;
+    max-height: 100%;
+    background: #000;
+    border-radius: 12px;
+}
+
+.modal-panel-audio p {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.modal-panel-audio audio {
+    width: min(500px, 100%);
+}
+
+.modal-panel iframe {
+    flex: 1;
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    background: white;
+}
+
+.modal-nota {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.modal-nota a {
+    color: tomato;
+}
+
+/* Bloquea el scroll del fondo mientras el modal está abierto */
+html.modal-open,
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ---------- RESPONSIVO / OTROS ---------- */
+@media (max-width: 900px) {
+    /* La navegación fija ocupa más alto en pantallas pequeñas */
+    [id] { scroll-margin-top: 140px; }
+    .parallax { padding-top: 150px; }
+}
+
+@media (max-width: 600px) {
+    .carrusel { padding: 0 40px; }
+    .carrusel-btn { width: 36px; height: 36px; font-size: 1.5rem; }
+    .modal { padding: 0; }
+    .modal-box { height: 100%; border-radius: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+
+/* ==================================================
+REDES SOCIALES CON IMAGEN DE FONDO (parallax)
+Para cambiarla: reemplaza assets/images/fondo6.jpg por tu foto
+(usa el mismo nombre) o cambia la ruta en la línea url(...).
+Si la imagen no carga, se ve el color sólido #111827.
+================================================== */
+#redes {
+    background-image: url("../assets/images/fondo6.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Capa oscura, igual que en las demás secciones */
+#redes::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    z-index: 0;
+}
+
+#redes > * {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    #redes { background-attachment: scroll; }
 }

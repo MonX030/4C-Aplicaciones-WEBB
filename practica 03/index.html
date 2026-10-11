@@ -20,6 +20,8 @@
         type="image/x-icon"
     >
 
+    <meta name="description" content="Portafolio personal de Rubén Morales Reyes">
+
     <link
         rel="stylesheet"
         href="styles/styles.css"
@@ -35,7 +37,8 @@
 NAVEGACIÓN
 ================================================== -->
 
-<nav id="navbar">
+<header class="site-header">
+<nav id="navbar" aria-label="Navegación principal">
 
     <h2>
         🚀 Mi Mundo
@@ -100,13 +103,16 @@ NAVEGACIÓN
     </ul>
 
 </nav>
+</header>
+
+<main>
 
 
 <!-- ==================================================
 INICIO
 ================================================== -->
 
-<header
+<section
     id="inicio"
     class="parallax parallax-1"
 >
@@ -145,7 +151,7 @@ INICIO
 
     </div>
 
-</header>
+</section>
 
 
 <!-- ==================================================
@@ -434,106 +440,99 @@ FAVORITOS
             ⭐ Mis favoritos
         </h2>
 
-        <div class="cards-container">
+        <!-- CARRUSEL: 3 tarjetas (película, canción, libro) -->
+        <div
+            id="carrusel"
+            class="carrusel"
+            role="region"
+            aria-roledescription="carrusel"
+            aria-label="Mis favoritos"
+            tabindex="0"
+        >
 
+            <div class="carrusel-viewport">
+                <div class="carrusel-track" id="carrusel-track">
 
-            <!-- ==================================================
-            PELÍCULA FAVORITA
-            ================================================== -->
+                    <article class="slide" aria-roledescription="diapositiva">
+                        <img src="assets/images/odisea.jpg" alt="Imagen de la película La Odisea" class="portada-slide">
+                        <h3>🎬 Película favorita</h3>
+                        <p>La Odisea</p>
+                        <button type="button" class="boton boton-modal" data-modal="video">▶ Ver película</button>
+                    </article>
 
-            <article class="movie-card">
+                    <article class="slide" aria-roledescription="diapositiva">
+                        <img src="assets/music/portada.jpg" alt="Portada de Mandragora - Me Gustas" class="portada-slide">
+                        <h3>🎵 Canción favorita</h3>
+                        <p>Mandragora - Me Gustas</p>
+                        <button type="button" class="boton boton-modal" data-modal="audio">🎧 Escuchar canción</button>
+                    </article>
 
-                <h3>
-                    🎬 Película favorita
-                </h3>
+                    <article class="slide" aria-roledescription="diapositiva">
+                        <img src="assets/images/el-perfume.jpg" alt="Portada del libro El Perfume" class="portada-slide portada-slide-libro">
+                        <h3>📖 Libro favorito</h3>
+                        <p>El Perfume</p>
+                        <button type="button" class="boton boton-modal" data-modal="pdf">📄 Leer libro (PDF)</button>
+                    </article>
 
-                <p>
-                    La Odisea
-                </p>
+                </div>
+            </div>
 
-                <video
-                    class="video-pelicula"
-                    controls
-                    poster="assets/images/odisea.jpg"
-                >
+            <button type="button" class="carrusel-btn carrusel-prev" id="carrusel-prev" aria-label="Favorito anterior">‹</button>
+            <button type="button" class="carrusel-btn carrusel-next" id="carrusel-next" aria-label="Favorito siguiente">›</button>
 
-                    <source
-                        src="assets/videos/la-odisea.mp4"
-                        type="video/mp4"
-                    >
+            <div class="carrusel-dots" id="carrusel-dots">
+                <button type="button" class="dot" aria-label="Ir a película favorita"></button>
+                <button type="button" class="dot" aria-label="Ir a canción favorita"></button>
+                <button type="button" class="dot" aria-label="Ir a libro favorito"></button>
+            </div>
 
-                    Tu navegador no soporta el reproductor de video.
-
-                </video>
-
-            </article>
-
-
-            <!-- ==================================================
-            CANCIÓN FAVORITA
-            ================================================== -->
-
-            <article class="music-card">
-
-                <img
-                    src="assets/music/portada.jpg"
-                    alt="Portada de Mandragora - Me Gustas"
-                    class="portada-cancion"
-                >
-
-                <h3>
-                    🎵 Canción favorita
-                </h3>
-
-                <p>
-                    Mandragora - Me Gustas
-                </p>
-
-                <audio
-                    class="reproductor-musica"
-                    controls
-                >
-
-                    <source
-                        src="assets/music/me-gustas.mp3"
-                        type="audio/mpeg"
-                    >
-
-                    Tu navegador no soporta el reproductor de audio.
-
-                </audio>
-
-            </article>
-
-
-            <!-- ==================================================
-            LIBRO FAVORITO
-            ================================================== -->
-
-            <article class="book-card">
-
-                <h3>
-                    📖 Libro favorito
-                </h3>
-
-                <p>
-                    El Perfume
-                </p>
-
-                <img
-                    src="assets/images/el-perfume.jpg"
-                    alt="Portada del libro El Perfume"
-                    class="portada-libro"
-                >
-
-            </article>
-
+            <p class="visually-hidden" id="carrusel-estado" aria-live="polite"></p>
 
         </div>
 
     </div>
 
 </section>
+
+
+<!-- MODAL DE PANTALLA COMPLETA (video, audio y PDF comparten el mismo modal) -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" hidden>
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h2 id="modal-titulo">Favorito</h2>
+            <button type="button" class="modal-close" id="modal-close" aria-label="Cerrar ventana">✕</button>
+        </div>
+
+        <div class="modal-body">
+
+            <div class="modal-panel" data-panel="video" hidden>
+                <video id="modal-video" controls preload="none" poster="assets/images/odisea.jpg">
+                    <source src="assets/videos/la-odisea.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de video.
+                </video>
+            </div>
+
+            <div class="modal-panel modal-panel-audio" data-panel="audio" hidden>
+                <img src="assets/music/portada.jpg" alt="Portada de Mandragora - Me Gustas" class="portada-cancion">
+                <p>Mandragora - Me Gustas</p>
+                <audio id="modal-audio" controls preload="none">
+                    <source src="assets/music/me-gustas.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+            </div>
+
+            <div class="modal-panel" data-panel="pdf" hidden>
+                <iframe id="modal-pdf" title="Libro El Perfume (PDF)"></iframe>
+                <p class="modal-nota">
+                    ¿No se ve el PDF?
+                    <a href="assets/documents/libro.pdf" target="_blank" rel="noopener noreferrer">Ábrelo en una pestaña nueva</a>.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 <!-- ==================================================
@@ -565,7 +564,7 @@ REDES SOCIALES
             aria-label="GitHub"
         >
 
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 
                 <path
                     fill="currentColor"
@@ -610,7 +609,7 @@ REDES SOCIALES
             aria-label="Instagram"
         >
 
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 
                 <rect
                     x="3"
@@ -659,7 +658,7 @@ REDES SOCIALES
             aria-label="Facebook"
         >
 
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 
                 <path
                     fill="currentColor"
@@ -687,7 +686,7 @@ REDES SOCIALES
             aria-label="TikTok"
         >
 
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 
                 <path
                     fill="currentColor"
@@ -721,7 +720,7 @@ REDES SOCIALES
             aria-label="LinkedIn"
         >
 
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 
                 <rect
                     x="4"
@@ -767,7 +766,7 @@ REDES SOCIALES
             aria-label="YouTube"
         >
 
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 
                 <path
                     fill="currentColor"
@@ -809,6 +808,8 @@ REDES SOCIALES
 FOOTER
 ================================================== -->
 
+</main>
+
 <footer>
 
     <p>
@@ -825,6 +826,9 @@ FOOTER
 
 </footer>
 
+
+<!-- JavaScript externo: carrusel + modal -->
+<script src="js/script.js" defer></script>
 
 </body>
 
