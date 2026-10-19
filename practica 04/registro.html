@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 250954</title>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Registro de Nuevos Usuarios</h2>
+        <p>Complete los campos para solicitar una cuenta en el sistema</p>
+    </header>
+
+    <main>
+        <!-- Action: Acción -->
+        <!-- Post: Ingresar datos -->
+        <!-- Get/Post: Jalado de información precargada -->
+        <form action="" method="POST">
+            <fieldset>
+                <legend>Datos Personales</legend>
+
+                <label for="Titulo">Título:</label>
+                <select id="Titulo">
+                    <option value="Sr">Sr</option>
+                    <option value="Sra">Sra</option>
+                    <option value="Srta">Srta</option>
+                    <option value="Dr">Dr</option>
+                    <option value="Dra">Dra</option>
+                </select>
+                <br>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Rubén" required>
+                <br>
+
+                <label for="APaterno">Apellido Paterno:</label>
+                <input type="text" id="APaterno" placeholder="Morales" required>
+                <br>
+
+                <label for="AMaterno">Apellido Materno:</label>
+                <input type="text" id="AMaterno" placeholder="Reyes">
+                <br>
+
+                <label for="Genero">Género:</label>
+                <select id="Genero">
+                    <option value="F">Femenino</option>
+                    <option value="M" selected>Masculino</option>
+                    <option value="X">Prefiero no decirlo</option>
+                </select>
+                <br>
+
+                <label for="FNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="FNacimiento" required>
+                <br>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Datos de contacto</legend>
+
+                <label for="Correo">Correo Electrónico:</label>
+                <input type="email" id="Correo" placeholder="ruben@ejemplo.com" required>
+                <br>
+
+                <label for="numTel">Número Telefónico:</label>
+                <input type="tel" id="numTel" placeholder="(+52) 7641033824">
+                <br>
+
+                <label for="horarioInicio">Favor de Contactar en el Horario:</label>
+                <input type="time" id="horarioInicio" value="09:00">
+                <span>a</span>
+                <input type="time" id="horarioFin" value="18:00">
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Datos de Acceso</legend>
+
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" placeholder="rubenmorales">
+                <br>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" placeholder="**********" required>
+                <br>
+
+                <label for="confirmarCont">Confirmar Contraseña:</label>
+                <input type="password" id="confirmarCont" placeholder="**********" required>
+                <br>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Datos de Ubicación</legend>
+
+                <label for="direccion">Dirección: </label>
+                <input type="text" id="direccion" placeholder="Calle, Número, Colonia">
+                <br>
+
+                <label for="pais">País: </label>
+                <input type="text" id="pais" placeholder="México">
+                <br>
+
+                <label for="estado">Estado: </label>
+                <input type="text" id="estado" placeholder="Puebla">
+                <br>
+
+                <label for="ciudad">Ciudad: </label>
+                <input type="text" id="ciudad" placeholder="Huauchinango">
+                <br>
+
+                <label for="codigoPostal">Código Postal: </label>
+                <input type="text" id="codigoPostal" placeholder="73160">
+            </fieldset>
+
+            <br>
+
+            <input type="checkbox" id="validado" required>
+            <label for="validado">Acepto los términos y condiciones</label>
+            <br><br>
+
+            <input type="submit" value="Enviar"> 
+            <input type="reset" value="Borrar">
+        </form>
+
+        <br><hr><br>
+
+        <!-- Visualización de citas -->
+        <fieldset>
+            <legend>Visualización de citas</legend>
+            <br>
+            <label for="mesCita">Fecha de la cita:</label>
+            <input type="month" id="mesCita">
+            <button type="button">Mostrar</button>
+        </fieldset>
+
+        <br>
+        <h4>Las citas programadas para el mes elegido son:</h4>
+        <br>
+
+        <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black; padding: 8px;">No.</th>
+                    <th style="border: 1px solid black; padding: 8px;">Nombre</th>
+                    <th style="border: 1px solid black; padding: 8px;">Descripción</th>
+                    <th style="border: 1px solid black; padding: 8px;">Fecha Programada</th>
+                    <th style="border: 1px solid black; padding: 8px;">Estatus Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">1.</td>
+                    <td style="border: 1px solid black; padding: 8px;">Cita de entrega de unidad reparada con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
+                    <td style="border: 1px solid black; padding: 8px;">Se realizó un cambio de bujías, la unidad está lista para entrega</td>
+                    <td style="border: 1px solid black; padding: 8px;">10 de Octubre de 2026</td>
+                    <td style="border: 1px solid black; padding: 8px;">Atendida</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">2.</td>
+                    <td style="border: 1px solid black; padding: 8px;">Cita de valoración con el cliente: Marco A. Ramírez, Unidad: Renault, Duster 2014</td>
+                    <td style="border: 1px solid black; padding: 8px;">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                    <td style="border: 1px solid black; padding: 8px;">16 de Octubre de 2026</td>
+                    <td style="border: 1px solid black; padding: 8px;">Programada</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">3.</td>
+                    <td style="border: 1px solid black; padding: 8px;">Cita de revisión con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
+                    <td style="border: 1px solid black; padding: 8px;">A la unidad se le hicieron cambio de bujías, pero el cliente reporta un sonido extraño.</td>
+                    <td style="border: 1px solid black; padding: 8px;">17 de Octubre de 2026</td>
+                    <td style="border: 1px solid black; padding: 8px;">Programada</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">4.</td>
+                    <td style="border: 1px solid black; padding: 8px;">Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                    <td style="border: 1px solid black; padding: 8px;">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                    <td style="border: 1px solid black; padding: 8px;">16 de Octubre de 2026</td>
+                    <td style="border: 1px solid black; padding: 8px;">Cancelada</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">5.</td>
+                    <td style="border: 1px solid black; padding: 8px;">Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                    <td style="border: 1px solid black; padding: 8px;">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                    <td style="border: 1px solid black; padding: 8px;">20 de Octubre de 2026</td>
+                    <td style="border: 1px solid black; padding: 8px;">Reprogramada</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
