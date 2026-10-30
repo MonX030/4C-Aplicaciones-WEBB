@@ -1,0 +1,395 @@
+
+/* ==========================================
+   ESTILOS GENERALES DE MECAGEST
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #edf1f5;
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+header {
+    background-color: #263746;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+header h1 {
+    font-size: 30px;
+    margin: 0 0 5px;
+    color: white;
+}
+
+header h2 {
+    font-size: 21px;
+    margin: 5px;
+    color: white;
+}
+
+header p {
+    color: #e0e7ed;
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   CONTENIDO PRINCIPAL
+========================================== */
+
+main {
+    max-width: 1050px;
+    margin: auto;
+}
+
+
+/* ==========================================
+   APARTADOS DEL FORMULARIO
+========================================== */
+
+fieldset {
+    background-color: white;
+    border: 1px solid #d4dce4;
+    border-radius: 9px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+legend {
+    color: #294c68;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 0 10px;
+}
+
+
+/* ==========================================
+   ETIQUETAS
+========================================== */
+
+label {
+    display: inline-block;
+    width: 190px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #374957;
+    vertical-align: middle;
+}
+
+label[for="validado"] {
+    width: auto;
+}
+
+
+/* ==========================================
+   CAMPOS DE ENTRADA
+========================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="month"],
+input[type="number"],
+input[type="datetime-local"],
+select,
+textarea {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #cbd3dc;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 5px 0 12px;
+    transition: border-color 0.2s;
+}
+
+
+/* Campos de texto */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 260px;
+    max-width: 100%;
+}
+
+
+/* Selectores */
+
+select {
+    width: 260px;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+
+/* Campos de fecha */
+
+input[type="date"],
+input[type="month"],
+input[type="datetime-local"] {
+    width: 260px;
+    max-width: 100%;
+}
+
+
+/* Campos de hora */
+
+input[type="time"] {
+    width: 135px;
+}
+
+
+/* Efecto al seleccionar un campo */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3478a3;
+    box-shadow: 0 0 4px rgba(52, 120, 163, 0.2);
+}
+
+
+/* ==========================================
+   CASILLAS, ARCHIVOS Y COLORES
+========================================== */
+
+input[type="checkbox"] {
+    accent-color: #315f7d;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    max-width: 100%;
+}
+
+input[type="color"] {
+    width: 55px;
+    height: 35px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 5px 0 12px;
+}
+
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    background-color: #315f7d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 20px;
+    margin: 8px 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #24465e;
+}
+
+input[type="reset"] {
+    background-color: #777777;
+}
+
+input[type="reset"]:hover {
+    background-color: #555555;
+}
+
+
+/* ==========================================
+   ÁREA DE TEXTO
+========================================== */
+
+textarea {
+    width: 100%;
+    max-width: 550px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+
+/* ==========================================
+   TABLAS
+========================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+    font-size: 14px;
+}
+
+th {
+    background-color: #315f7d;
+    color: white;
+    font-weight: bold;
+}
+
+th,
+td {
+    border: 1px solid #d3dce4;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    color: #333333;
+}
+
+/* Colores alternados en las filas */
+
+tbody tr:nth-child(even) {
+    background-color: #f1f5f8;
+}
+
+/* Efecto al pasar el cursor */
+
+tbody tr:hover {
+    background-color: #e8f0f5;
+}
+
+
+/* ==========================================
+   TÍTULOS Y SEPARADORES
+========================================== */
+
+h2,
+h4 {
+    color: #263746;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #cbd3dc;
+    margin: 30px 0;
+}
+
+
+/* ==========================================
+   IMAGEN DE PERFIL
+========================================== */
+
+input[type="image"] {
+    vertical-align: middle;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   MENSAJE DE EDAD
+========================================== */
+
+#fechaNacimiento + p {
+    font-size: 14px;
+    margin-left: 190px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/* ==========================================
+   ADAPTACIÓN PARA CELULARES
+========================================== */
+
+@media screen and (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    header h2 {
+        font-size: 18px;
+    }
+
+    fieldset {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    label {
+        width: 100%;
+        margin-bottom: 3px;
+    }
+
+    label[for="validado"] {
+        width: auto;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="date"],
+    input[type="month"],
+    input[type="datetime-local"],
+    select {
+        width: 100%;
+    }
+
+    input[type="time"] {
+        width: 125px;
+    }
+
+    #fechaNacimiento + p {
+        margin-left: 0;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    table {
+        min-width: 550px;
+        font-size: 12px;
+    }
+
+    button,
+    input[type="submit"],
+    input[type="reset"] {
+        max-width: 100%;
+    }
+
+}
