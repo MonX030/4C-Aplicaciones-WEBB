@@ -24,11 +24,23 @@
 
     <main>
 
-        <!-- Formulario Principal de Registro -->
+        <!-- Indicador de pasos -->
+        <ol id="stepper" class="stepper">
+            <li class="active">Personales</li>
+            <li>Contacto</li>
+            <li>Acceso</li>
+            <li>Ubicación</li>
+        </ol>
 
-        <form action="" method="POST">
+        <div id="mensajeExito" class="alert-success" role="status" hidden>
+            ✔ ¡Solicitud enviada correctamente! Revisaremos tus datos y te contactaremos pronto.
+        </div>
 
-            <fieldset>
+        <!-- Formulario Principal de Registro (por pasos) -->
+
+        <form action="" method="POST" id="formRegistro" novalidate>
+
+            <fieldset class="step">
                 <legend>Datos Personales</legend>
 
                 <label for="tituloCortesia">Título de Cortesía:</label>
@@ -79,7 +91,7 @@
 
             <br>
 
-            <fieldset>
+            <fieldset class="step">
                 <legend>Datos de Contacto</legend>
 
                 <label for="email">Correo Electrónico:</label>
@@ -92,6 +104,11 @@
 
                 <br>
 
+                <label for="telefonoFijo">Teléfono Fijo:</label>
+                <input type="text" id="telefonoFijo" placeholder="Opcional">
+
+                <br>
+
                 <label for="horarioContactoInicio">Favor de contactar en el horario:</label>
 
                 <input type="time" id="horarioContactoInicio" value="09:00">
@@ -100,11 +117,29 @@
 
                 <input type="time" id="horarioContactoFin" value="18:00">
 
+                <h4>Redes Sociales</h4>
+
+                <input type="checkbox" id="chkFacebook">
+                <label for="urlFacebook" class="label-red">Facebook:</label>
+                <input type="url" id="urlFacebook" placeholder="https://www.facebook.com/usuario">
+
+                <br>
+
+                <input type="checkbox" id="chkLinkedin">
+                <label for="urlLinkedin" class="label-red">Linkedin:</label>
+                <input type="url" id="urlLinkedin" placeholder="https://www.linkedin.com/in/usuario">
+
+                <br>
+
+                <input type="checkbox" id="chkWhatsapp">
+                <label for="whatsAppQR" class="label-red">Whatsapp (cargar QR):</label>
+                <input type="file" id="whatsAppQR" accept="image/*">
+
             </fieldset>
 
             <br>
 
-            <fieldset>
+            <fieldset class="step">
                 <legend>Datos de Acceso</legend>
 
                 <label for="usuario">Usuario:</label>
@@ -126,7 +161,7 @@
 
             <br>
 
-            <fieldset>
+            <fieldset class="step">
                 <legend>Datos de Ubicación</legend>
 
                 <label for="direccion">Dirección:</label>
@@ -150,23 +185,27 @@
                 <br>
 
                 <label for="codigoPostal">Código Postal:</label>
-                <input type="text" id="codigoPostal" placeholder="73160">
+                <input type="text" id="codigoPostal" maxlength="5" placeholder="73160">
+
+                <br>
+
+                <br>
+                <input type="checkbox" id="validado">
+                <label for="validado">
+                    Acepto los términos y condiciones del uso de la plataforma MecaGest.
+                </label>
 
             </fieldset>
 
-            <br>
-
-            <input type="checkbox" id="validado" required>
-
-            <label for="validado">
-                Acepto los términos y condiciones del uso de la plataforma MecaGest.
-            </label>
-
-            <br><br>
-
-            <input type="submit" value="Enviar Solicitud">
-
-            <input type="reset" value="Limpiar Formulario">
+        <!-- Navegación entre pasos -->
+        <div class="form-nav">
+            <button type="button" id="btnAnterior" class="btn-secondary">← Anterior</button>
+            <button type="button" id="btnSiguiente">Siguiente →</button>
+            <span id="accionesFinales" hidden>
+                <input type="submit" value="Enviar Solicitud">
+                <input type="reset" value="Limpiar Formulario">
+            </span>
+        </div>
 
         </form>
 
@@ -185,9 +224,22 @@
             <fieldset>
                 <legend>Visualización de Citas por Mes:</legend>
 
-                <label for="mesCitas">Por favor, elige el mes:</label>
+                <label>Por favor, elige el filtro:</label>
 
+                <input type="radio" name="filtroCitas" id="filtroMes" value="month" checked>
+                <label for="filtroMes" class="label-inline">Mes</label>
+                <input type="radio" name="filtroCitas" id="filtroSemana" value="week">
+                <label for="filtroSemana" class="label-inline">Semana</label>
+
+                <br>
+
+                <label for="mesCitas">Mes:</label>
                 <input type="month" id="mesCitas">
+
+                <br>
+
+                <label for="semanaCitas">Semana:</label>
+                <input type="week" id="semanaCitas" disabled>
 
                 <button type="button" id="verCitas">Ver Citas</button>
 
@@ -272,6 +324,12 @@
                 <label for="backgroundColor">Color de Fondo:</label>
                 <input type="color" id="backgroundColor" value="#CCCCCC">
 
+                <br>
+
+                <label for="soundsVolume">Volumen de reproducción de sonidos:</label>
+                <input type="range" id="soundsVolume" min="0" max="100" value="80">
+                <button type="button" id="muteSounds">Silenciar sonido</button>
+
             </fieldset>
 
             <br>
@@ -328,6 +386,18 @@
 
                 <br>
 
+                <label for="sucursal">Elige la sucursal:</label>
+                <input list="listaSucursales" id="sucursal" placeholder="Busca tu sucursal preferida...">
+                <datalist id="listaSucursales">
+                    <option value="Huauchinango, Centro"></option>
+                    <option value="Huauchinango, Petrolera"></option>
+                    <option value="Xicotepec, Centro"></option>
+                    <option value="Xicotepec, El Tabacal"></option>
+                    <option value="Necaxa, Canaditas"></option>
+                </datalist>
+
+                <br>
+
                 <label for="descriptionText">Descripción de la Cita:</label>
 
                 <br>
@@ -347,6 +417,14 @@
 
             <fieldset>
                 <legend>Solicitud de Herramientas para Servicio Mecánico:</legend>
+
+                <label>Categoría de recurso:</label>
+                <input type="radio" name="categoriaRecurso" id="catRefaccion" value="refaccion" checked>
+                <label for="catRefaccion" class="label-inline">Refacción</label>
+                <input type="radio" name="categoriaRecurso" id="catHerramienta" value="herramienta">
+                <label for="catHerramienta" class="label-inline">Herramienta</label>
+
+                <br>
 
                 <label for="toolName">Elige la pieza:</label>
 

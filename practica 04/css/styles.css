@@ -393,3 +393,169 @@ input[type="image"] {
     }
 
 }
+
+/* ==========================================
+   FORMULARIO POR PASOS, VALIDACIÓN Y MENSAJES
+========================================== */
+
+.stepper {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    padding: 0;
+    margin: 0 0 25px;
+    counter-reset: paso;
+}
+
+.stepper li {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7a8a97;
+    padding-top: 6px;
+    border-top: 4px solid #d4dce4;
+    counter-increment: paso;
+    transition: all 0.2s;
+}
+
+.stepper li::before {
+    content: counter(paso) ". ";
+}
+
+.stepper li.active {
+    color: #315f7d;
+    border-top-color: #315f7d;
+}
+
+.stepper li.done {
+    color: #2e7d32;
+    border-top-color: #2e7d32;
+}
+
+/* Solo el formulario de registro oculta/muestra pasos */
+
+#formRegistro .step {
+    display: none;
+}
+
+#formRegistro .step.active {
+    display: block;
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+input[type="url"] {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border: 1px solid #cbd3dc;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 5px 0 12px;
+    width: 260px;
+    max-width: 100%;
+}
+
+input[type="url"]:focus {
+    outline: none;
+    border-color: #3478a3;
+    box-shadow: 0 0 4px rgba(52, 120, 163, 0.2);
+}
+
+label.label-red {
+    width: 150px;
+}
+
+label.label-inline {
+    width: auto;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+input[type="range"] {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* Navegación entre pasos */
+
+.form-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+#btnSiguiente,
+#accionesFinales {
+    margin-left: auto;
+}
+
+.btn-secondary {
+    background-color: #777777;
+}
+
+.btn-secondary:hover {
+    background-color: #555555;
+}
+
+/* Errores en rojo */
+
+.error-msg {
+    display: block;
+    color: #c62828;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+.error-msg::before {
+    content: "⚠ ";
+}
+
+input.invalid,
+select.invalid {
+    border-color: #c62828 !important;
+    background-color: #fdecea !important;
+}
+
+input.invalid:focus,
+select.invalid:focus {
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15) !important;
+}
+
+/* Mensaje de éxito */
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+    border-left: 6px solid #2e7d32;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: aparecer 0.3s ease;
+}
+
+.alert-success[hidden],
+#accionesFinales[hidden] {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+
+    .stepper li {
+        font-size: 11px;
+    }
+
+    label.label-red {
+        width: 100%;
+    }
+
+}
