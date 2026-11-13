@@ -503,6 +503,7 @@
         }
 
         btnSiguiente.addEventListener('click', () => {
+            if (pasoActual >= pasos.length - 1) return; // en el último paso se usa "Enviar"
             if (validarPaso(pasoActual)) {
                 mostrarPaso(pasoActual + 1);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
