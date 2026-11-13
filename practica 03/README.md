@@ -59,20 +59,6 @@ HTML5 semántico · CSS3 (Flexbox, Grid, `clamp()`, media queries) · JavaScript
 2. Abrir `practica 03/miperfil.html` en el navegador (doble clic).
 3. Opcional: servidor local, p. ej. `python -m http.server` y visitar `http://localhost:8000/practica%2003/miperfil.html`. Si el PDF no se muestra al abrir con `file://`, usar este método o el 
 
+
 ## 9. Conclusiones
 Aprendí a estructurar una página con etiquetas semánticas, a organizar recursos con rutas relativas, a maquetar con Flexbox y Grid, a hacerla responsiva, a manipular el DOM con eventos (carrusel y modal con control de scroll, foco y multimedia) y a trabajar con ramas, commits y Pull Requests.
-## 🚀 Bonus: Hospedaje Web con GitHub Pages
-
-* **URL Pública del Portafolio:** [https://monx030.github.io/4C-Aplicaciones-WEBB/](https://monx030.github.io/4C-Aplicaciones-WEBB/)
-* **GitHub URL del Repositorio:** [https://github.com/MonX030/4C-Aplicaciones-WEBB](https://github.com/MonX030/4C-Aplicaciones-WEBB)
-
-### 1. Procedimiento Realizado
-1. Se configuró el repositorio como público para habilitar el servicio de **GitHub Pages** desde la sección de configuración (*Settings > Pages*).
-2. Se estableció el despliegue automático apuntando a la rama `main` y a la carpeta raíz (`/ root`).
-3. Se implementó un archivo de redirección `index.html` en la raíz principal del repositorio para enlazar automáticamente el dominio público con el portafolio personal ubicado en la subcarpeta `practica 03/`.
-
-### 2. Dificultades Encontradas
-* Al tener el proyecto estructurado dentro de una subcarpeta (`practica 03`), la URL principal de GitHub Pages no cargaba el portafolio de forma directa por defecto, mostrando el directorio general del repositorio.
-
-### 3. Soluciones Implementadas
-* Se creó un archivo HTML con redirección automática en la raíz del repositorio, logrando que al ingresar al enlace público se redirija fluidamente hacia el archivo principal del portafolio dentro de la carpeta correspondiente.
