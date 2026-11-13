@@ -186,6 +186,7 @@
 
         function actualizarEdad() {
             mensajeEdad.textContent = '';
+            mensajeEdad.className = 'mensaje-edad';
             edad.value = '';
             if (!fechaNac.value) return;
 
@@ -196,11 +197,11 @@
             edad.value = anios + (anios === 1 ? ' año' : ' años');
 
             if (anios >= 18) {
-                mensajeEdad.textContent = `✔ Edad: ${anios} años. El usuario es MAYOR de edad.`;
-                mensajeEdad.style.color = '#2e7d32';
+                mensajeEdad.textContent = `Edad: ${anios} años. El usuario es MAYOR de edad.`;
+                mensajeEdad.className = 'mensaje-edad ok';
             } else {
-                mensajeEdad.textContent = `✖ Edad: ${anios} años. El usuario es MENOR de edad.`;
-                mensajeEdad.style.color = '#c62828';
+                mensajeEdad.textContent = `Edad: ${anios} años. El usuario es MENOR de edad.`;
+                mensajeEdad.className = 'mensaje-edad mal';
             }
         }
 
@@ -242,12 +243,18 @@
 
 
         /* ---------- 2.3 Contraseña: botón para ver u ocultar ---------- */
+        // Cambia el ícono del botón (ojo abierto / ojo tachado)
+        function ponerIconoOjo(boton, visible) {
+            const uso = boton.querySelector('use');
+            if (uso) uso.setAttribute('href', visible ? '#i-eye-off' : '#i-eye');
+            boton.setAttribute('aria-label', visible ? 'Ocultar contraseña' : 'Mostrar contraseña');
+            boton.title = visible ? 'Ocultar contraseña' : 'Mostrar contraseña';
+        }
+
         function ocultarContrasenas() {
             $$('.ver-pass').forEach((boton) => {
                 campo(boton.dataset.target).type = 'password';
-                boton.textContent = '👁';
-                boton.setAttribute('aria-label', 'Mostrar contraseña');
-                boton.title = 'Mostrar contraseña';
+                ponerIconoOjo(boton, false);
             });
         }
 
@@ -256,9 +263,7 @@
                 const entrada = campo(boton.dataset.target);
                 const mostrar = entrada.type === 'password';
                 entrada.type = mostrar ? 'text' : 'password';
-                boton.textContent = mostrar ? '🙈' : '👁';
-                boton.setAttribute('aria-label', mostrar ? 'Ocultar contraseña' : 'Mostrar contraseña');
-                boton.title = mostrar ? 'Ocultar contraseña' : 'Mostrar contraseña';
+                ponerIconoOjo(boton, mostrar);
             });
         });
 
@@ -919,7 +924,7 @@
             Almacen.guardar(CLAVES.herramientas, pedidos);
 
             cantidad.value = '';
-            avisar(`Se agregó a la orden: ${unidades} × ${nombre}.`, 'ok');
+            avisar(`Se agregó a la orden: ${nombre} (${unidades}).`, 'ok');
         }
 
         boton.addEventListener('click', solicitarHerramienta);
@@ -1069,9 +1074,10 @@
             return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
         }
 
-        // El texto debe leerse sobre las tarjetas blancas y sobre el fondo de la página
+        // El texto debe leerse sobre las tarjetas (color --surface) y sobre el fondo de la página
+        const colorTarjetas = getComputedStyle(raiz).getPropertyValue('--surface').trim() || '#141416';
         const textoLegible = (colorTexto, colorFondo) =>
-            contraste(colorTexto, '#ffffff') >= 3 && contraste(colorTexto, colorFondo) >= 3;
+            contraste(colorTexto, colorTarjetas) >= 3 && contraste(colorTexto, colorFondo) >= 3;
 
         function aplicarFuente(hex) {
             raiz.style.setProperty('--text', hex);
@@ -1084,7 +1090,7 @@
 
         fuente.addEventListener('change', () => {
             if (!textoLegible(fuente.value, fondo.value)) {
-                avisar('Ese color de fuente casi no se lee. Elige uno más oscuro.', 'error');
+                avisar('Ese color de fuente casi no se lee. Elige uno con más contraste.', 'error');
                 fuente.value = estado.fuente || colorFuenteOriginal;
                 return;
             }
@@ -1096,7 +1102,7 @@
 
         fondo.addEventListener('change', () => {
             if (!textoLegible(fuente.value, fondo.value)) {
-                avisar('Con ese fondo el texto casi no se lee. Elige otro color.', 'error');
+                avisar('Con ese fondo el texto casi no se lee. Elige un fondo más oscuro.', 'error');
                 fondo.value = estado.fondo || colorFondoOriginal;
                 return;
             }

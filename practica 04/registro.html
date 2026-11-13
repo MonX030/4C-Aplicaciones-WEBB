@@ -8,13 +8,33 @@
     <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 20854</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+    <!-- Fuentes: Bebas Neue (títulos) e Inter (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Archivo CSS externo -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
+    <!-- Íconos de línea (se usan con <svg class="ico"><use href="#i-nombre"/></svg>) -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="i-registro" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></symbol>
+        <symbol id="i-citas" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+        <symbol id="i-agendar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+        <symbol id="i-herramientas" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+        <symbol id="i-cuenta" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+        <symbol id="i-ajustes" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 6.1A10.9 10.9 0 0 1 12 5c6.5 0 10 7 10 7a17.6 17.6 0 0 1-3.2 4.2M6.6 6.6A17.7 17.7 0 0 0 2 12s3.5 7 10 7a10.3 10.3 0 0 0 4.4-1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+        <symbol id="i-flecha-izq" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+        <symbol id="i-flecha-der" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    </svg>
+
     <header>
+        <span class="logo" aria-hidden="true"><svg class="ico"><use href="#i-herramientas"/></svg></span>
         <h1>MecaGest</h1>
         <h2>Registro de Nuevos Usuarios</h2>
         <p>Complete los campos para solicitar una cuenta en el sistema.</p>
@@ -23,12 +43,12 @@
     <!-- Menú principal: cada botón muestra una sección -->
     <nav class="menu" aria-label="Menú principal">
         <div class="menu-inner">
-            <button type="button" class="menu-btn active" data-tab="registro">📝 Registro</button>
-            <button type="button" class="menu-btn" data-tab="citas">📅 Mis Citas</button>
-            <button type="button" class="menu-btn" data-tab="agendar">🕒 Agendar Cita</button>
-            <button type="button" class="menu-btn" data-tab="herramientas">🔧 Herramientas</button>
-            <button type="button" class="menu-btn" data-tab="cuenta">👤 Mi Cuenta</button>
-            <button type="button" class="menu-btn" data-tab="ajustes">⚙️ Ajustes</button>
+            <button type="button" class="menu-btn active" data-tab="registro"><svg class="ico"><use href="#i-registro"/></svg>Registro</button>
+            <button type="button" class="menu-btn" data-tab="citas"><svg class="ico"><use href="#i-citas"/></svg>Mis Citas</button>
+            <button type="button" class="menu-btn" data-tab="agendar"><svg class="ico"><use href="#i-agendar"/></svg>Agendar Cita</button>
+            <button type="button" class="menu-btn" data-tab="herramientas"><svg class="ico"><use href="#i-herramientas"/></svg>Herramientas</button>
+            <button type="button" class="menu-btn" data-tab="cuenta"><svg class="ico"><use href="#i-cuenta"/></svg>Mi Cuenta</button>
+            <button type="button" class="menu-btn" data-tab="ajustes"><svg class="ico"><use href="#i-ajustes"/></svg>Ajustes</button>
         </div>
     </nav>
 
@@ -48,7 +68,7 @@
             </ol>
 
             <div id="mensajeExito" class="alert-success" role="status" hidden>
-                ✔ ¡Solicitud enviada correctamente! Revisaremos tus datos y te contactaremos pronto.
+                ¡Solicitud enviada correctamente! Revisaremos tus datos y te contactaremos pronto.
             </div>
 
             <form action="" method="POST" id="formRegistro" novalidate>
@@ -56,6 +76,8 @@
                 <!-- PASO 1 -->
                 <fieldset class="step">
                     <legend>Datos Personales</legend>
+
+                <div class="rejilla">
 
                     <div class="campo">
                         <label for="tituloCortesia">Título de Cortesía:</label>
@@ -104,11 +126,14 @@
                         <label for="edad">Edad:</label>
                         <input type="text" id="edad" placeholder="Se calcula automáticamente" readonly>
                     </div>
-                </fieldset>
+                </div>
+            </fieldset>
 
                 <!-- PASO 2 -->
                 <fieldset class="step">
                     <legend>Datos de Contacto</legend>
+
+                <div class="rejilla">
 
                     <div class="campo">
                         <label for="email">Correo Electrónico:</label>
@@ -125,7 +150,7 @@
                         <input type="tel" id="telefonoFijo" placeholder="Opcional">
                     </div>
 
-                    <div class="campo">
+                    <div class="campo ancho">
                         <label for="horarioContactoInicio">Favor de contactar en el horario:</label>
                         <div class="controles">
                             <input type="time" id="horarioContactoInicio" value="09:00">
@@ -154,11 +179,14 @@
                         <label for="chkWhatsapp">Whatsapp (QR)</label>
                         <input type="file" id="whatsAppQR" accept="image/*" disabled>
                     </div>
-                </fieldset>
+                </div>
+            </fieldset>
 
                 <!-- PASO 3 -->
                 <fieldset class="step">
                     <legend>Datos de Acceso</legend>
+
+                <div class="rejilla">
 
                     <div class="campo">
                         <label for="usuario">Usuario:</label>
@@ -170,7 +198,7 @@
                         <span class="campo-pass">
                             <input type="password" id="contrasena" placeholder="**********" autocomplete="new-password" required>
                             <button type="button" class="ver-pass" data-target="contrasena"
-                                aria-label="Mostrar contraseña" title="Mostrar contraseña">👁</button>
+                                aria-label="Mostrar contraseña" title="Mostrar contraseña"><svg class="ico"><use href="#i-eye"/></svg></button>
                         </span>
                     </div>
 
@@ -179,18 +207,21 @@
                         <span class="campo-pass">
                             <input type="password" id="confirmarContrasena" placeholder="**********" autocomplete="new-password" required>
                             <button type="button" class="ver-pass" data-target="confirmarContrasena"
-                                aria-label="Mostrar contraseña" title="Mostrar contraseña">👁</button>
+                                aria-label="Mostrar contraseña" title="Mostrar contraseña"><svg class="ico"><use href="#i-eye"/></svg></button>
                         </span>
                     </div>
 
                     <p class="ayuda">Mínimo 8 caracteres, con una mayúscula y un número.</p>
-                </fieldset>
+                </div>
+            </fieldset>
 
                 <!-- PASO 4 -->
                 <fieldset class="step">
                     <legend>Datos de Ubicación</legend>
 
-                    <div class="campo">
+                <div class="rejilla">
+
+                    <div class="campo ancho">
                         <label for="direccion">Dirección:</label>
                         <input type="text" id="direccion" placeholder="Calle, Número, Colonia" required>
                     </div>
@@ -227,12 +258,13 @@
                             Acepto los términos y condiciones del uso de la plataforma MecaGest.
                         </label>
                     </div>
-                </fieldset>
+                </div>
+            </fieldset>
 
                 <!-- Navegación entre pasos -->
                 <div class="form-nav">
-                    <button type="button" id="btnAnterior" class="btn-secondary">← Anterior</button>
-                    <button type="button" id="btnSiguiente">Siguiente →</button>
+                    <button type="button" id="btnAnterior" class="btn-secondary"><svg class="ico"><use href="#i-flecha-izq"/></svg>Anterior</button>
+                    <button type="button" id="btnSiguiente">Siguiente<svg class="ico"><use href="#i-flecha-der"/></svg></button>
                     <span id="accionesFinales" hidden>
                         <input type="submit" value="Enviar Solicitud">
                         <input type="reset" value="Limpiar Formulario">
@@ -249,6 +281,8 @@
         <section id="tab-citas" class="panel">
             <fieldset>
                 <legend>Visualización de Citas</legend>
+
+                <div class="rejilla">
 
                 <p class="ayuda">Elige si quieres filtrar por mes o por semana.</p>
 
@@ -331,6 +365,7 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
             </fieldset>
         </section>
 
@@ -342,6 +377,8 @@
             <fieldset>
                 <legend>Solicitud de Cita</legend>
 
+                <div class="rejilla">
+
                 <div class="campo">
                     <label for="dateAppointment">Fecha de la Cita:</label>
                     <input type="datetime-local" id="dateAppointment">
@@ -349,7 +386,7 @@
 
                 <div class="campo">
                     <label for="sucursal">Elige la sucursal:</label>
-                    <input list="listaSucursales" id="sucursal" placeholder="Busca tu sucursal preferida..." autocomplete="off">
+                    <input type="text" list="listaSucursales" id="sucursal" placeholder="Busca tu sucursal preferida..." autocomplete="off">
                     <datalist id="listaSucursales">
                         <option value="Huauchinango, Centro"></option>
                         <option value="Huauchinango, Petrolera"></option>
@@ -359,7 +396,7 @@
                     </datalist>
                 </div>
 
-                <div class="campo">
+                <div class="campo ancho">
                     <label for="descriptionText">Descripción de la Cita:</label>
                     <textarea id="descriptionText" rows="4" cols="50" placeholder="Escriba aquí los detalles..."></textarea>
                 </div>
@@ -367,6 +404,7 @@
                 <div class="acciones">
                     <button type="button" id="btnAgendarCita">Agendar cita</button>
                 </div>
+            </div>
             </fieldset>
         </section>
 
@@ -377,6 +415,8 @@
         <section id="tab-herramientas" class="panel">
             <fieldset>
                 <legend>Solicitud de Herramientas para Servicio Mecánico</legend>
+
+                <div class="rejilla">
 
                 <div class="campo">
                     <label>Categoría de recurso:</label>
@@ -487,6 +527,7 @@
                         </tfoot>
                     </table>
                 </div>
+            </div>
             </fieldset>
         </section>
 
@@ -498,6 +539,8 @@
 
             <fieldset>
                 <legend>Configuraciones de Mi Cuenta/Perfil</legend>
+
+                <div class="rejilla">
 
                 <div class="campo">
                     <label for="userPhoto">Foto de Perfil:</label>
@@ -511,10 +554,13 @@
                 </div>
 
                 <input type="hidden" id="userIdProfile" name="userId" value="20854">
+            </div>
             </fieldset>
 
             <fieldset>
                 <legend>Datos Fiscales</legend>
+
+                <div class="rejilla">
 
                 <div class="campo">
                     <label for="rfc">Registro Federal de Causantes (RFC):</label>
@@ -527,6 +573,7 @@
                 </div>
 
                 <input type="hidden" id="userIdFiscal" name="userId" value="20854">
+            </div>
             </fieldset>
         </section>
 
@@ -538,6 +585,8 @@
             <fieldset>
                 <legend>Configuraciones de la Interfaz</legend>
 
+                <div class="rejilla">
+
                 <div class="campo">
                     <label for="fontColor">Color de la fuente:</label>
                     <input type="color" id="fontColor">
@@ -548,7 +597,7 @@
                     <input type="color" id="backgroundColor" value="#CCCCCC">
                 </div>
 
-                <div class="campo">
+                <div class="campo ancho">
                     <label for="soundsVolume">Volumen de reproducción de sonidos:</label>
                     <div class="controles">
                         <input type="range" id="soundsVolume" min="0" max="100" value="80">
@@ -560,6 +609,7 @@
                 <div class="acciones">
                     <button type="button" id="restablecerAjustes" class="btn-secondary">Restablecer valores</button>
                 </div>
+            </div>
             </fieldset>
         </section>
 
