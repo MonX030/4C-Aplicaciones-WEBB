@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 20854</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fuentes: Bebas Neue (títulos) e Inter (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Íconos de línea (se usan con <svg class="ico"><use href="#i-nombre"/></svg>) -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="i-registro" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></symbol>
+        <symbol id="i-citas" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+        <symbol id="i-agendar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+        <symbol id="i-herramientas" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+        <symbol id="i-cuenta" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+        <symbol id="i-ajustes" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 6.1A10.9 10.9 0 0 1 12 5c6.5 0 10 7 10 7a17.6 17.6 0 0 1-3.2 4.2M6.6 6.6A17.7 17.7 0 0 0 2 12s3.5 7 10 7a10.3 10.3 0 0 0 4.4-1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+        <symbol id="i-flecha-izq" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+        <symbol id="i-flecha-der" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    </svg>
+
+    <header>
+        <span class="logo" aria-hidden="true"><svg class="ico"><use href="#i-herramientas"/></svg></span>
+        <h1>MecaGest</h1>
+        <h2>Registro de Nuevos Usuarios</h2>
+        <p>Complete los campos para solicitar una cuenta en el sistema.</p>
+    </header>
+
+    <!-- Menú principal: cada botón muestra una sección -->
+    <nav class="menu" aria-label="Menú principal">
+        <div class="menu-inner">
+            <button type="button" class="menu-btn active" data-tab="registro"><svg class="ico"><use href="#i-registro"/></svg>Registro</button>
+            <button type="button" class="menu-btn" data-tab="citas"><svg class="ico"><use href="#i-citas"/></svg>Mis Citas</button>
+            <button type="button" class="menu-btn" data-tab="agendar"><svg class="ico"><use href="#i-agendar"/></svg>Agendar Cita</button>
+            <button type="button" class="menu-btn" data-tab="herramientas"><svg class="ico"><use href="#i-herramientas"/></svg>Herramientas</button>
+            <button type="button" class="menu-btn" data-tab="cuenta"><svg class="ico"><use href="#i-cuenta"/></svg>Mi Cuenta</button>
+            <button type="button" class="menu-btn" data-tab="ajustes"><svg class="ico"><use href="#i-ajustes"/></svg>Ajustes</button>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ==========================================
+             SECCIÓN 1: REGISTRO DE NUEVOS USUARIOS
+        ========================================== -->
+        <section id="tab-registro" class="panel active">
+
+            <!-- Indicador de pasos -->
+            <ol id="stepper" class="stepper">
+                <li class="active">Personales</li>
+                <li>Contacto</li>
+                <li>Acceso</li>
+                <li>Ubicación</li>
+            </ol>
+
+            <div id="mensajeExito" class="alert-success" role="status" hidden>
+                ¡Solicitud enviada correctamente! Revisaremos tus datos y te contactaremos pronto.
+            </div>
+
+            <form action="" method="POST" id="formRegistro" novalidate>
+
+                <!-- PASO 1 -->
+                <fieldset class="step">
+                    <legend>Datos Personales</legend>
+
+                <div class="rejilla">
+
+                    <div class="campo">
+                        <label for="tituloCortesia">Título de Cortesía:</label>
+                        <select id="tituloCortesia">
+                            <option value="Sr">Sr.</option>
+                            <option value="Sra">Sra.</option>
+                            <option value="Srta">Srita.</option>
+                            <option value="Ing">Ing.</option>
+                            <option value="Dr">Dr.</option>
+                            <option value="Mtro">Mtro.</option>
+                            <option value="Ninguno">Ninguno</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" placeholder="Rubén" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="apPaterno">Apellido Paterno:</label>
+                        <input type="text" id="apPaterno" placeholder="Morales" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="apMaterno">Apellido Materno:</label>
+                        <input type="text" id="apMaterno" placeholder="Reyes">
+                    </div>
+
+                    <div class="campo">
+                        <label for="genero">Género:</label>
+                        <select id="genero">
+                            <option value="F">Femenino</option>
+                            <option value="M" selected>Masculino</option>
+                            <option value="X">Prefiero no decirlo</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" id="fechaNacimiento" required>
+                        <p id="mensajeEdad" class="mensaje-edad"></p>
+                    </div>
+
+                    <div class="campo">
+                        <label for="edad">Edad:</label>
+                        <input type="text" id="edad" placeholder="Se calcula automáticamente" readonly>
+                    </div>
+                </div>
+            </fieldset>
+
+                <!-- PASO 2 -->
+                <fieldset class="step">
+                    <legend>Datos de Contacto</legend>
+
+                <div class="rejilla">
+
+                    <div class="campo">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" placeholder="ruben@ejemplo.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="numTelefonico">Número Telefónico:</label>
+                        <input type="tel" id="numTelefonico" placeholder="(+52) 7641033824" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefonoFijo">Teléfono Fijo:</label>
+                        <input type="tel" id="telefonoFijo" placeholder="Opcional">
+                    </div>
+
+                    <div class="campo ancho">
+                        <label for="horarioContactoInicio">Favor de contactar en el horario:</label>
+                        <div class="controles">
+                            <input type="time" id="horarioContactoInicio" value="09:00">
+                            <span>a</span>
+                            <input type="time" id="horarioContactoFin" value="18:00">
+                        </div>
+                    </div>
+
+                    <h4>Redes Sociales</h4>
+                    <p class="ayuda">Marca la casilla de la red social para poder escribir su enlace.</p>
+
+                    <div class="red">
+                        <input type="checkbox" id="chkFacebook">
+                        <label for="chkFacebook">Facebook</label>
+                        <input type="url" id="urlFacebook" placeholder="https://www.facebook.com/usuario" disabled>
+                    </div>
+
+                    <div class="red">
+                        <input type="checkbox" id="chkLinkedin">
+                        <label for="chkLinkedin">Linkedin</label>
+                        <input type="url" id="urlLinkedin" placeholder="https://www.linkedin.com/in/usuario" disabled>
+                    </div>
+
+                    <div class="red">
+                        <input type="checkbox" id="chkWhatsapp">
+                        <label for="chkWhatsapp">Whatsapp (QR)</label>
+                        <input type="file" id="whatsAppQR" accept="image/*" disabled>
+                    </div>
+                </div>
+            </fieldset>
+
+                <!-- PASO 3 -->
+                <fieldset class="step">
+                    <legend>Datos de Acceso</legend>
+
+                <div class="rejilla">
+
+                    <div class="campo">
+                        <label for="usuario">Usuario:</label>
+                        <input type="text" id="usuario" placeholder="rubenmorales" autocomplete="username" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="contrasena">Contraseña:</label>
+                        <span class="campo-pass">
+                            <input type="password" id="contrasena" placeholder="**********" autocomplete="new-password" required>
+                            <button type="button" class="ver-pass" data-target="contrasena"
+                                aria-label="Mostrar contraseña" title="Mostrar contraseña"><svg class="ico"><use href="#i-eye"/></svg></button>
+                        </span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmarContrasena">Confirmar contraseña:</label>
+                        <span class="campo-pass">
+                            <input type="password" id="confirmarContrasena" placeholder="**********" autocomplete="new-password" required>
+                            <button type="button" class="ver-pass" data-target="confirmarContrasena"
+                                aria-label="Mostrar contraseña" title="Mostrar contraseña"><svg class="ico"><use href="#i-eye"/></svg></button>
+                        </span>
+                    </div>
+
+                    <p class="ayuda">Mínimo 8 caracteres, con una mayúscula y un número.</p>
+                </div>
+            </fieldset>
+
+                <!-- PASO 4 -->
+                <fieldset class="step">
+                    <legend>Datos de Ubicación</legend>
+
+                <div class="rejilla">
+
+                    <div class="campo ancho">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" id="direccion" placeholder="Calle, Número, Colonia" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="pais">País:</label>
+                        <select id="pais" required>
+                            <option value="">Selecciona un país</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" list="listaEstados" placeholder="Puebla" autocomplete="off" required>
+                        <datalist id="listaEstados"></datalist>
+                    </div>
+
+                    <div class="campo">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" id="ciudad" list="listaCiudades" placeholder="Huauchinango" autocomplete="off" required>
+                        <datalist id="listaCiudades"></datalist>
+                    </div>
+
+                    <div class="campo">
+                        <label for="codigoPostal">Código Postal:</label>
+                        <input type="text" id="codigoPostal" maxlength="10" placeholder="73160" required>
+                    </div>
+
+                    <p id="ayudaDomicilio" class="ayuda"></p>
+
+                    <div class="terminos">
+                        <input type="checkbox" id="validado">
+                        <label for="validado">
+                            Acepto los términos y condiciones del uso de la plataforma MecaGest.
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+                <!-- Navegación entre pasos -->
+                <div class="form-nav">
+                    <button type="button" id="btnAnterior" class="btn-secondary"><svg class="ico"><use href="#i-flecha-izq"/></svg>Anterior</button>
+                    <button type="button" id="btnSiguiente">Siguiente<svg class="ico"><use href="#i-flecha-der"/></svg></button>
+                    <span id="accionesFinales" hidden>
+                        <input type="submit" value="Enviar Solicitud">
+                        <input type="reset" value="Limpiar Formulario">
+                    </span>
+                </div>
+
+            </form>
+        </section>
+
+
+        <!-- ==========================================
+             SECCIÓN 2: VISUALIZACIÓN DE CITAS
+        ========================================== -->
+        <section id="tab-citas" class="panel">
+            <fieldset>
+                <legend>Visualización de Citas</legend>
+
+                <div class="rejilla">
+
+                <p class="ayuda">Elige si quieres filtrar por mes o por semana.</p>
+
+                <div class="opciones">
+                    <input type="radio" name="filtroCitas" id="filtroMes" value="month" checked>
+                    <label for="filtroMes">Por mes</label>
+                    <input type="radio" name="filtroCitas" id="filtroSemana" value="week">
+                    <label for="filtroSemana">Por semana</label>
+                </div>
+
+                <div class="campo">
+                    <label for="mesCitas">Mes:</label>
+                    <input type="month" id="mesCitas" value="2026-10">
+                </div>
+
+                <div class="campo">
+                    <label for="semanaCitas">Semana:</label>
+                    <input type="week" id="semanaCitas" placeholder="2026-W43" disabled>
+                </div>
+
+                <div class="acciones">
+                    <button type="button" id="verCitas">Ver Citas</button>
+                    <button type="button" id="todasCitas" class="btn-secondary">Mostrar todas</button>
+                </div>
+
+                <h4 id="resumenCitas">Todas las citas programadas:</h4>
+
+                <div class="tabla-scroll">
+                    <table id="tablaCitas">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Fecha Programada</th>
+                                <th>Estatus Actual</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>Cita de entrega de unidad reparada con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
+                                <td>Se realizó un cambio de bujías, la unidad está lista para entrega.</td>
+                                <td>10 de Octubre de 2026</td>
+                                <td><span class="estatus atendida">Atendida</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>2.</td>
+                                <td>Cita de valoración con el cliente: Bertha Hdz Aranda, Unidad: Renault, Duster 2022</td>
+                                <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                                <td>16 de Octubre de 2026</td>
+                                <td><span class="estatus programada">Programada</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>3.</td>
+                                <td>Cita de valoración con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
+                                <td>A la unidad se le hicieron cambio de bujías, pero el cliente reporta un sonido extraño.</td>
+                                <td>17 de Octubre de 2026</td>
+                                <td><span class="estatus programada">Programada</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>4.</td>
+                                <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                                <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                                <td>16 de Octubre de 2026</td>
+                                <td><span class="estatus cancelada">Cancelada</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>5.</td>
+                                <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                                <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                                <td>20 de Octubre de 2026</td>
+                                <td><span class="estatus reprogramada">Reprogramada</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </fieldset>
+        </section>
+
+
+        <!-- ==========================================
+             SECCIÓN 3: SOLICITUD DE CITA
+        ========================================== -->
+        <section id="tab-agendar" class="panel">
+            <fieldset>
+                <legend>Solicitud de Cita</legend>
+
+                <div class="rejilla">
+
+                <div class="campo">
+                    <label for="dateAppointment">Fecha de la Cita:</label>
+                    <input type="datetime-local" id="dateAppointment">
+                </div>
+
+                <div class="campo">
+                    <label for="sucursal">Elige la sucursal:</label>
+                    <input type="text" list="listaSucursales" id="sucursal" placeholder="Busca tu sucursal preferida..." autocomplete="off">
+                    <datalist id="listaSucursales">
+                        <option value="Huauchinango, Centro"></option>
+                        <option value="Huauchinango, Petrolera"></option>
+                        <option value="Xicotepec, Centro"></option>
+                        <option value="Xicotepec, El Tabacal"></option>
+                        <option value="Necaxa, Canaditas"></option>
+                    </datalist>
+                </div>
+
+                <div class="campo ancho">
+                    <label for="descriptionText">Descripción de la Cita:</label>
+                    <textarea id="descriptionText" rows="4" cols="50" placeholder="Escriba aquí los detalles..."></textarea>
+                </div>
+
+                <div class="acciones">
+                    <button type="button" id="btnAgendarCita">Agendar cita</button>
+                </div>
+            </div>
+            </fieldset>
+        </section>
+
+
+        <!-- ==========================================
+             SECCIÓN 4: HERRAMIENTAS Y REFACCIONES
+        ========================================== -->
+        <section id="tab-herramientas" class="panel">
+            <fieldset>
+                <legend>Solicitud de Herramientas para Servicio Mecánico</legend>
+
+                <div class="rejilla">
+
+                <div class="campo">
+                    <label>Categoría de recurso:</label>
+                    <div class="opciones">
+                        <input type="radio" name="categoriaRecurso" id="catTodas" value="todas" checked>
+                        <label for="catTodas">Todas</label>
+                        <input type="radio" name="categoriaRecurso" id="catRefaccion" value="refaccion">
+                        <label for="catRefaccion">Refacción</label>
+                        <input type="radio" name="categoriaRecurso" id="catHerramienta" value="herramienta">
+                        <label for="catHerramienta">Herramienta</label>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="toolName">Elige la pieza:</label>
+                    <select id="toolName">
+                        <optgroup label="Piezas de Motor" data-tipo="refaccion">
+                            <option value="bujias">Bujías</option>
+                            <option value="pistones">Pistones</option>
+                            <option value="valvulas">Válvulas</option>
+                        </optgroup>
+
+                        <optgroup label="Piezas de Transmisión" data-tipo="refaccion">
+                            <option value="embrague">Kit de Embrague</option>
+                            <option value="engranes">Engranes</option>
+                            <option value="flecha">Flecha Homocinética</option>
+                        </optgroup>
+
+                        <optgroup label="Piezas de Suspensión" data-tipo="refaccion">
+                            <option value="amortiguadores">Amortiguadores</option>
+                            <option value="resortes">Resortes</option>
+                            <option value="rotulas">Rótulas</option>
+                        </optgroup>
+
+                        <optgroup label="Llaves y Herramientas Especializadas" data-tipo="herramienta">
+                            <option value="llave_combinada">Llave combinada</option>
+                            <option value="llave_dinamometrica">Llave dinamométrica</option>
+                            <option value="extractor_poleas">Extractor de poleas</option>
+                            <option value="llave_torx">Llave Torx</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="cantidadHerramienta">Cantidad:</label>
+                    <input type="number" id="cantidadHerramienta" name="cantidad" min="1" max="10" placeholder="1 a 10">
+                </div>
+
+                <div class="acciones">
+                    <button type="button" id="requestTool">Solicitar Herramienta</button>
+                    <button type="button" id="vaciarHerramientas" class="btn-secondary">Vaciar lo agregado</button>
+                </div>
+
+                <h3>Herramientas seleccionadas</h3>
+
+                <div class="tabla-scroll">
+                    <table id="tablaHerramientas">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="centrado">Herramientas para la orden de servicio</th>
+                            </tr>
+                            <tr>
+                                <th>No.</th>
+                                <th>Herramienta</th>
+                                <th>Categoría</th>
+                                <th>Cantidad</th>
+                                <th>Unidad</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Llave combinada</td>
+                                <td>Herramienta manual</td>
+                                <td>4</td>
+                                <td>Piezas</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Llave dinamométrica</td>
+                                <td>Herramienta especializada</td>
+                                <td>2</td>
+                                <td>Piezas</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Extractor de poleas</td>
+                                <td>Herramienta especializada</td>
+                                <td>1</td>
+                                <td>Juego</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Llave Torx</td>
+                                <td>Herramienta manual</td>
+                                <td>3</td>
+                                <td>Juegos</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="centrado">Total de unidades</td>
+                                <td id="totalUnidades">10</td>
+                                <td>-</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            </fieldset>
+        </section>
+
+
+        <!-- ==========================================
+             SECCIÓN 5: MI CUENTA
+        ========================================== -->
+        <section id="tab-cuenta" class="panel">
+
+            <fieldset>
+                <legend>Configuraciones de Mi Cuenta/Perfil</legend>
+
+                <div class="rejilla">
+
+                <div class="campo">
+                    <label for="userPhoto">Foto de Perfil:</label>
+                    <input type="file" id="userPhoto" accept="image/*">
+                </div>
+
+                <div class="campo">
+                    <label for="buttonNext">Vista previa (clic para cambiar):</label>
+                    <input type="image" id="buttonNext" src="assets/images/cat-cat-dance.gif"
+                        alt="Foto de perfil" width="80" height="80" class="foto-perfil">
+                </div>
+
+                <input type="hidden" id="userIdProfile" name="userId" value="20854">
+            </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos Fiscales</legend>
+
+                <div class="rejilla">
+
+                <div class="campo">
+                    <label for="rfc">Registro Federal de Causantes (RFC):</label>
+                    <input type="text" id="rfc" maxlength="13" placeholder="MORRXXXXXX">
+                </div>
+
+                <div class="campo">
+                    <label for="fiscalSituation">Constancia de Situación Fiscal:</label>
+                    <input type="file" id="fiscalSituation" accept=".pdf">
+                </div>
+
+                <input type="hidden" id="userIdFiscal" name="userId" value="20854">
+            </div>
+            </fieldset>
+        </section>
+
+
+        <!-- ==========================================
+             SECCIÓN 6: AJUSTES
+        ========================================== -->
+        <section id="tab-ajustes" class="panel">
+            <fieldset>
+                <legend>Configuraciones de la Interfaz</legend>
+
+                <div class="rejilla">
+
+                <div class="campo">
+                    <label for="fontColor">Color de la fuente:</label>
+                    <input type="color" id="fontColor">
+                </div>
+
+                <div class="campo">
+                    <label for="backgroundColor">Color de Fondo:</label>
+                    <input type="color" id="backgroundColor" value="#CCCCCC">
+                </div>
+
+                <div class="campo ancho">
+                    <label for="soundsVolume">Volumen de reproducción de sonidos:</label>
+                    <div class="controles">
+                        <input type="range" id="soundsVolume" min="0" max="100" value="80">
+                        <output id="volumenValor">80%</output>
+                        <button type="button" id="muteSounds">Silenciar sonido</button>
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button type="button" id="restablecerAjustes" class="btn-secondary">Restablecer valores</button>
+                </div>
+            </div>
+            </fieldset>
+        </section>
+
+    </main>
+
+    <!-- Aviso flotante (reemplaza a los alert) -->
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <!-- Catálogo de países, estados y ciudades (domicilios.json en versión .js para abrir sin servidor) -->
+    <script src="js/domicilios.js"></script>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
