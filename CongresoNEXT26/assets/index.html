@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXT UTXJ 2026 · Bitácora de Rubén Morales Reyes</title>
+<meta name="description" content="Conclusiones personales, puntos de interés y metas del 2.º Congreso Internacional NEXT UTXJ 2026.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=4">
+</head>
+<body>
+<header class="hud top">
+  <div class="brand"><img src="assets/img/logo.png" alt="2.º NEXT UTXJ Congreso Internacional 2026"><div><b>Bitácora NEXT 2026</b><span class="mono"><i class="pulse"></i>SYS.BITACORA // ACTIVE</span></div></div>
+  <div class="prog"><div class="segs" id="segs" aria-hidden="true"></div><div class="ctr mono" aria-live="polite"><b id="ctr">01</b> / <span id="tot">08</span></div></div>
+  <div class="acts">
+    <button id="snd" aria-pressed="false" title="Activar sonido">Sonido: off</button>
+    <button id="md">Descargar .md</button>
+    <button id="pr">Imprimir / PDF</button>
+    <button id="rs">Restaurar borrador</button>
+  </div>
+</header>
+
+<main id="stage" aria-label="Línea de tiempo del congreso">
+  <div id="bgt" aria-hidden="true"></div>
+  <div id="track"></div>
+  <div id="head" aria-hidden="true"></div>
+</main>
+
+<footer class="hud bottom">
+  <div id="scrub" aria-label="Regla de tiempo"><div id="ruler"></div><div id="sn"></div><div id="sh"></div></div>
+  <div class="drow"><div class="days" id="days" role="group" aria-label="Día del congreso"></div><p class="hint mono">Rueda · arrastra · ← → · clic en una tarjeta para escribir</p></div>
+</footer>
+
+<aside id="panel" aria-hidden="true" aria-label="Reflexión de la actividad"></aside>
+<div id="printDoc"></div>
+<div id="toast" class="toast" role="status"></div>
+
+<script src="js/data.js?v=4"></script>
+<script src="js/app.js?v=4"></script>
+</body>
+</html>
